@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Examen Android</title>
+	<link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+	<script src="jquery.min.js"></script>
+	<script src="jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript">
+		$(document).on( "pagechange", function ( a,b) {
+			if( b.toPage[0].id == 'pagina2' ){
+				$.ajax({
+					url: 'codigo.php',
+					type: 'GET',
+					success: function( a,b ){
+							html = "<p>"+a+"</p>";
+						$('#pagina2 [data-role=content]').append( html );
+					}
+				})
+			}
+		})
+	</script>
+</head>
+<body>
+	<div id="pagina1" data-role="page">
+		<div data-role="content">
+			<p>Soy un simple texto</p>
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<a href="#pagina2">Llevame a la página 2</a>
+		</div>
+	</div>
+
+	<div id="pagina2" data-role="page">
+		<div data-role="content">
+		</div>
+	</div>
+</body>
+</html>
