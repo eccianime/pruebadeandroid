@@ -15,7 +15,7 @@
 					type: 'GET',
 					success: function( a,b ){
 							html = "<p>"+a+"</p>";
-						$('#pagina2 [data-role=content]').append( html );
+						$('#pagina2 [data-role=content]').html( html );
 					}
 				})
 			}
